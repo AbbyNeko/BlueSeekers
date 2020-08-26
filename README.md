@@ -1,2 +1,2 @@
-# BlueSeekers
+# DevSeekers
 

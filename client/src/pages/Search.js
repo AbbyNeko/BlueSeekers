@@ -1,18 +1,39 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import CenterNav from "../components/CenterNav";
+import AdvancedFilters from "../components/AdvancedFilters";
 
-function JobSearch() {
+const JobSearch = () => {
+
+    const jobTitleRef = useRef();
+    const locationRef = useRef();
+
+    const [searchResults, setResults] = useState([]);
 
     return (
       <div>
       <CenterNav/>
-        <div className="row">
 
-          <div className="col-lg-12">
-            <a class="devseekers-logo center-logo" href="/"><span className="dev-part">Dev</span>Seekers</a>
+        <div className="container">
+
+                <div className="row">
+                  <div className="col-lg-12">
+                    <a class="devseekers-logo center-logo" href="/"><span className="dev-part">Dev</span>Seekers</a>
+                  </div>
+                </div>
+          
+          <div className="row">
+                <div className="col-lg-12 home-page">
+                    <form className="job-search-form col-lg-6">
+                        <input type="text" ref={jobTitleRef} name="job-title" className="job-title-input" placeholder="Job Title"/>
+                        <input type="text" ref={locationRef} name="location" className="location-input" placeholder="Location"/>
+                        <input type="submit" name="job-search-btn" value="Search"/>
+                    </form>
+                <AdvancedFilters/>
+              </div>
           </div>
 
         </div>
+
       </div>
     );
   }

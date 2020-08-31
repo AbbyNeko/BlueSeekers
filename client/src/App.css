@@ -2,10 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* LOGO */
 
 .devseekers-logo {
   font-family: "Roboto", sans-serif;
@@ -24,6 +21,7 @@
   display: block;
 }
 
+/* NAVIGATION */
 .nav-items li {
   font-family: "Roboto", sans-serif;
   color: black;
@@ -47,6 +45,50 @@
 .dev-part:hover {
   color: #0344eb !important;
 }
+
+/* JOB SEARCH FORM */
+
+form {
+  display: block;
+  margin:auto;
+  width:50%;
+}
+
+.filter-form {
+  width:100%;
+}
+
+.accordion, .uk-accordion {
+  display: block;
+  margin:auto;
+  padding-top:1em !important;
+}
+
+.accordion li a {
+    text-align: right;
+}
+
+label {
+  display: block;
+  margin-right:5em !important;
+}
+
+.uk-checkbox {
+  margin-right:20px;
+}
+
+.job-title-input {
+  margin-right:0.7em;
+}
+
+.location-input {
+  margin-right:0.5em;
+}
+
+.home-page {
+  margin-top:2em;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

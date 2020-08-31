@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "../components/Nav";
 
-function JobSearch() {
+function Login() {
 
     return (
         <div>
@@ -14,4 +14,4 @@ function JobSearch() {
   }
 
 
-export default JobSearch;
+export default Login;

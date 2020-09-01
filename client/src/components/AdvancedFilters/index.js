@@ -18,7 +18,6 @@ function AdvancedFilters() {
 
   return (
 
-    <ul className="accordion col-lg-4 col-md-10" uk-accordion="multiple:true">
         <li>
             <a className="uk-accordion-title" href="#">Advanced</a>
             <div className="uk-accordion-content">
@@ -47,7 +46,6 @@ function AdvancedFilters() {
             </form>
             </div>
         </li>
-    </ul>
 
   );
 }

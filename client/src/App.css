@@ -58,6 +58,14 @@ form {
   width:100%;
 }
 
+.uk-close-large {
+  margin-right:1em;
+}
+
+.uk-accordion-content li {
+  list-style: none;
+}
+
 .accordion, .uk-accordion {
   display: block;
   margin:auto;

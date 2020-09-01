@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import CenterNav from "../components/CenterNav";
 import AdvancedFilters from "../components/AdvancedFilters";
+import SavedSearchList from "../components/SavedSearchList";
 
 const JobSearch = () => {
 
@@ -17,7 +18,7 @@ const JobSearch = () => {
 
                 <div className="row">
                   <div className="col-lg-12">
-                    <a class="devseekers-logo center-logo" href="/"><span className="dev-part">Dev</span>Seekers</a>
+                    <a className="devseekers-logo center-logo" href="/"><span className="dev-part">Dev</span>Seekers</a>
                   </div>
                 </div>
           
@@ -28,7 +29,12 @@ const JobSearch = () => {
                         <input type="text" ref={locationRef} name="location" className="location-input" placeholder="Location"/>
                         <input type="submit" name="job-search-btn" value="Search"/>
                     </form>
-                <AdvancedFilters/>
+
+                <ul className="accordion col-lg-4 col-md-10" uk-accordion="multiple:true">
+                  <AdvancedFilters/>
+                  <SavedSearchList/>
+                </ul>
+                
               </div>
           </div>
 

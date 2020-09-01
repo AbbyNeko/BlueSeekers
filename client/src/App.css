@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+h1 {
+  font-weight: bold;
+  margin-top:10px;
+  margin-bottom: 30px;
+}
+
 /* LOGO */
 
 .devseekers-logo {
@@ -97,6 +103,61 @@ label {
   margin-top:2em;
 }
 
+/* Login */
+
+.login-section, .sign-up-section {
+  margin-top:1.5em;
+}
+
+.login-section p, .sign-up-section p {
+  display: block !important;
+  margin-bottom:1em !important;
+  margin-right:auto !important;
+  margin-left:auto !important;
+}
+
+.email-input, .password-input, .first-name-input, .last-name-input  {
+  width:15em;
+}
+
+.login-btn, .sign-up-btn {
+  width:8em;
+}
+
+.email-input, .password-input, .login-btn, .sign-up-btn, .first-name-input, .last-name-input {
+  display: block;
+  margin:auto;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+/* SAVED JOBS */
+
+.saved-job-status p, .saved-job-status button{
+  display: inline-block;
+  margin-right:2em;
+}
+
+.saved-job-status button {
+  width:8em;
+}
+
+.saved-job-details p {
+  display: inline-block;
+  margin-left:2em;
+}
+
+.saved-job-details .uk-close-large {
+  vertical-align: top;
+}
+
+.savedjob-title {
+  font-size:1.4em;
+}
+
+.saved-job-status {
+  font-size: 1.15em;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

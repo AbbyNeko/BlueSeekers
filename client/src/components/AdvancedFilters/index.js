@@ -25,7 +25,7 @@ function AdvancedFilters() {
                 
                 <h4>Location Radius</h4>
                 <input name="location-radius" ref={locationRadiusRef} className="uk-range" id="locationRadiusInput" type="range" min="10" max="100" step="10" onInput={populateRadiusValue}/>
-  <span>Within <output name="radiusOutputName" id="radiusOutputId">{currentRadiusValue}</output> mi</span>
+                <span>Within <output name="radiusOutputName" id="radiusOutputId">{currentRadiusValue}</output> mi</span>
 
                 <h4>Date Posted</h4>
                 <select className="uk-select" ref={datePostedRef}>

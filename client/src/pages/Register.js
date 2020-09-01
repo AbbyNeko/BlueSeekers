@@ -1,9 +1,11 @@
 import React, {useRef} from "react";
 
-function Login() {
+function RegisterAccount() {
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    const firstNameRef = useRef();
+    const lastNameRef = useRef();
 
     return (
         <div className="container">
@@ -14,13 +16,15 @@ function Login() {
                   </div>
                 </div>   
 
-                <div className="row login-section">
-                    <form className="col-lg-12 login-form">
+                <div className="row sign-up-section">
+                    <form className="col-lg-12 sign-up-form">
+                        <input type="text" ref={firstNameRef} name="first-name" className="first-name-input" placeholder="First Name"/>
+                        <input type="text" ref={lastNameRef} name="last-name" className="last-name-input" placeholder="Last Name"/>
                         <input type="email" ref={emailRef} name="email" className="email-input" placeholder="Email Address"/>
                         <input type="password" ref={passwordRef} name="password" className="password-input" placeholder="Password"/>
-                        <input type="submit" name="login-btn" className="login-btn" value="Login"/>
+                        <input type="submit" name="sign-up-btn" className="sign-up-btn" value="Sign Up"/>
                     </form>   
-                    <p>Don't have an account? Sign up <a href="/sign-up">here.</a> </p>            
+                    <p>Already have an account? Login <a href="/login">here.</a> </p>            
                 </div>
 
         </div>
@@ -28,4 +32,4 @@ function Login() {
   }
 
 
-export default Login;
+export default RegisterAccount;

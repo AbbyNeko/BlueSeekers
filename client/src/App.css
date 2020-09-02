@@ -159,6 +159,20 @@ label {
   font-size: 1.15em;
 }
 
+/* MY ACCOUNT */
+
+.skills-list li {
+  list-style: none;
+}
+
+.my-account input {
+  margin-left:1em;
+}
+
+.my-account button {
+  margin-left:0.8em;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

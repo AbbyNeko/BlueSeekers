@@ -165,12 +165,24 @@ label {
   list-style: none;
 }
 
+.full-name-input {
+  margin-left:4.7em !important;
+}
+
 .my-account input {
   margin-left:1em;
 }
 
 .my-account button {
   margin-left:0.8em;
+}
+
+/* JOB POSTING */
+
+.job-posting button {
+  display: inline-block;
+  margin-right:3em;
+  margin-bottom:4em;
 }
 
 @media (prefers-reduced-motion: no-preference) {

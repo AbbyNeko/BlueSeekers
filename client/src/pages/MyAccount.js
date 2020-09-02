@@ -24,7 +24,7 @@ function MyAccount() {
 
                                 <div className="col-lg-7 col-md-12">
                                     <label>Name<input type="text" ref={fullNameRef} name="full-name-input" className="full-name-input" placeholder="John Smith"/></label>
-                                    <label>Email Address<input type="text" ref={emailRef} name="account-email-input" className="email-input" placeholder="jobseeker@gmail.com"/></label>
+                                    <label>Email Address<input type="text" ref={emailRef} name="account-email-input" className="account-email-input" placeholder="jobseeker@gmail.com"/></label>
                                     <label>Push Notifications for New Jobs<input type="checkbox" ref={notifyRef} name="notify-checkbox" className="notify-checkbox"/></label>
                                 </div>
 

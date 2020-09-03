@@ -29,7 +29,7 @@ function MyAccount() {
                                 </div>
 
                                 <div className="col-lg-5 col-md-12">
-                                    <h3>Skills Profile</h3>
+                                    <h3><strong>Skills Profile</strong></h3>
                                     <input type="text" name="add-skill-input" className="add-skill-input"/>
                                     <button>Add Skill</button>
                                     <ul className="uk-sortable skills-list" data-uk-sortable>

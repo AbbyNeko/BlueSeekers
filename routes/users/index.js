@@ -1,16 +1,16 @@
 const passport = require("passport");
 const express = require("express");
 const router = express.Router();
-const db = require("./models");
-var isAuthenticated = require("./config/middleware/isAuthenticated");
+const User = require("../../models/User");
+var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
-router.post("/api/register", function(req, res) {
+router.route("/register", function(req, res) {
   console.log("registering user");
 
   //Do password validation here before attempting to register user, such as checking for password length, captial letters, special characters, etc.
 
-  db.User.register(
-    new db.User({ username: req.body.username, email: req.body.email }),
+  User.register(
+    new User({ username: req.body.username, email: req.body.email }),
     req.body.password,
     function(err, user) {
       if (err) {
@@ -24,7 +24,7 @@ router.post("/api/register", function(req, res) {
   );
 });
 
-router.post("/api/login", function(req, res, next) {
+router.route("/login", function(req, res, next) {
   passport.authenticate("local", function(err, user, info) {
     if (err) {
       return next(err);
@@ -41,15 +41,15 @@ router.post("/api/login", function(req, res, next) {
   })(req, res, next);
 });
 
-router.get("/api/logout", function(req, res) {
+router.route("/logout", function(req, res) {
   req.logout();
   res.json({ message: "logged out" });
 });
 
-router.get("/api/user", function(req, res) {
+router.route("/user", function(req, res) {
   console.log("available username");
   if (req.query.username) {
-    db.User.find({ username: req.query.username })
+    User.find({ username: req.query.username })
       .then(result => {
         res.json({ length: result.length });
       })
@@ -59,7 +59,7 @@ router.get("/api/user", function(req, res) {
   }
 });
 
-router.get("/api/authorized", isAuthenticated, function(req, res) {
+router.route("/authorized", isAuthenticated, function(req, res) {
   res.json(req.user);
 });
 

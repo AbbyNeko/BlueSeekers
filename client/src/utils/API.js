@@ -17,15 +17,15 @@ export default {
   createSavedSearch: function(filters) {
     return axios.post("/api/savedJobSearch/", filters);
   },
+  // Deletes the book with the given id
+  deleteSavedJob: function(userId, jobId) {
+    return axios.delete("/api/savedJobs/" + userId + "/"+ jobId);
+  },
   // Gets the book with the given id
   searchJobs: function(filters) {
     return axios.get("/api/jobs/",  {
       params: filters
     });
-  },
-  // Deletes the book with the given id
-  deleteSavedJob: function(userId, jobId) {
-    return axios.delete("/api/savedJobs/" + userId + "/"+ jobId);
   },
   // Saves a book to the database
   saveJob: function(jobData) {
@@ -33,10 +33,18 @@ export default {
   },
   // delete saved job search
   getSkillProfile: function(userId) {
-    return axios.get("/api/skillProfiles/"+userId);
+    return axios.get("/users/skillProfiles/"+userId);
   },
   //get user 
   getUser: function(userId) {
-    return axios.get("/api/users/"+userId);
+    return axios.get("/users/"+userId);
+  },
+  //create user 
+  createUser: function(userData) {
+    return axios.post("/users/", userData);
+  },
+  //delete user 
+  deleteUser: function(userId) {
+    return axios.delete("/users/"+userId);
   }
 };

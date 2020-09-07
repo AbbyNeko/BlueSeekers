@@ -2,6 +2,7 @@ const passport = require("passport");
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
+const SkillProfile = require("../../models/SkillProfile");    
 var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 router.route("/register", function(req, res) {
@@ -46,7 +47,7 @@ router.route("/logout", function(req, res) {
   res.json({ message: "logged out" });
 });
 
-router.route("/user", function(req, res) {
+router.route("/", function(req, res) {
   console.log("available username");
   if (req.query.username) {
     User.find({ username: req.query.username })
@@ -62,5 +63,9 @@ router.route("/user", function(req, res) {
 router.route("/authorized", isAuthenticated, function(req, res) {
   res.json(req.user);
 });
+
+router.route("/skillProfiles")
+      .get();
+
 
 module.exports = router;

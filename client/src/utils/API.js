@@ -41,10 +41,14 @@ export default {
   },
   //create user 
   createUser: function(userData) {
-    return axios.post("/users/", userData);
+    return axios.post("/users/register", userData);
   },
-  //delete user 
-  deleteUser: function(userId) {
-    return axios.delete("/users/"+userId);
+  //login user 
+  loginUser: function(userId) {
+    return axios.delete("/users/login"+userId);
+  },
+  //logout user 
+  logoutUser: function(userId) {
+    return axios.delete("/users/logout"+userId);
   }
 };

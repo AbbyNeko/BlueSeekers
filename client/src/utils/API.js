@@ -23,9 +23,7 @@ export default {
   },
   // Gets the book with the given id
   searchJobs: function(filters) {
-    return axios.get("/api/jobs/",  {
-      params: filters
-    });
+    return axios.get("/api/jobs/"+filters);
   },
   // Saves a book to the database
   saveJob: function(jobData) {
@@ -45,10 +43,13 @@ export default {
   },
   //login user 
   loginUser: function(userId) {
-    return axios.delete("/users/login"+userId);
+    return axios.post("/users/login"+userId);
   },
   //logout user 
   logoutUser: function(userId) {
-    return axios.delete("/users/logout"+userId);
+    return axios.get("/users/logout"+userId);
+  },
+  isLoggedIn: function() {
+    return axios.get("/users/authorized");
   }
 };

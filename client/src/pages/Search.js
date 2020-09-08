@@ -2,13 +2,48 @@ import React, { useRef, useState } from "react";
 import CenterNav from "../components/CenterNav";
 import AdvancedFilters from "../components/AdvancedFilters";
 import SavedSearchList from "../components/SavedSearchList";
+import JobListing from "../components/JobListing";
+import API from "../utils/API";
 
 const JobSearch = () => {
 
     const jobTitleRef = useRef();
     const locationRef = useRef();
+    const jobTypeRef = useRef();
 
     const [searchResults, setResults] = useState([]);
+
+  function checkIfLoggedIn() {
+
+    API.isLoggedIn()
+      .then(res => res.data)
+      .catch(err => console.log(err));
+
+  }
+
+  // search job postings
+  function searchJobs(filters) {
+    API.searchJobs(JSON.stringify(filters))
+      .then(res => setResults(res.data))
+      .catch(err => console.log(err));
+  }
+
+  // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+  function handleFormSubmit(event) {
+
+      event.preventDefault();
+      
+      let filters = {};
+      filters.jobTitle = jobTitleRef.current.value;
+      filters.location = locationRef.current.value;
+
+      searchJobs(filters);
+  }
+
+    let listedResults = searchResults.map((result, index) => 
+      <JobListing location={result.location} company={result.company} title={result.title} url={result.url} key={index}/>
+    );
 
     return (
       <div>
@@ -24,17 +59,24 @@ const JobSearch = () => {
           
           <div className="row">
                 <div className="col-lg-12 home-page">
-                    <form className="job-search-form col-lg-6">
+                    <form className="job-search-form col-lg-6 col-md-9 col-sm-12" onSubmit={handleFormSubmit}>
                         <input type="text" ref={jobTitleRef} name="job-title" className="job-title-input" placeholder="Job Title"/>
                         <input type="text" ref={locationRef} name="location" className="location-input" placeholder="Location"/>
                         <input type="submit" name="job-search-btn" value="Search"/>
-                    </form>
 
-                <ul className="accordion col-lg-4 col-md-10" uk-accordion="multiple:true">
-                  <AdvancedFilters/>
-                  <SavedSearchList/>
-                </ul>
-                
+                        <ul className="accordion col-lg-8 col-sm-10" uk-accordion="multiple:true">
+                          <AdvancedFilters/>
+                          <SavedSearchList/>
+                        </ul>
+
+                </form>
+
+                <div className="results">
+
+                  {listedResults}
+
+                </div>
+
               </div>
           </div>
 

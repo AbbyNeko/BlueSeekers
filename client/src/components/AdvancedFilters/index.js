@@ -12,7 +12,6 @@ function AdvancedFilters() {
         <li>
             <a className="uk-accordion-title" href="#">Advanced</a>
             <div className="uk-accordion-content">
-            <form className="filter-form">
                 
                 <h4>Date Posted</h4>
                 <input type="date" className="uk-datepicker" ref={datePostedRef}/>
@@ -25,7 +24,6 @@ function AdvancedFilters() {
                     <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={jobTypeRef}/>Contract</label>
                 </div>
 
-            </form>
             </div>
         </li>
 

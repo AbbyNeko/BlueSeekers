@@ -23,7 +23,6 @@ function getSkillResults(req, res) {
       console.log(`error - ${error}`);
   });
 
-
 }
 
 router.route("/register", function(req, res) {

@@ -11,17 +11,17 @@ function getJobResults(req, res) {
 
     let url = "https://jobs.github.com/positions.json?search=";
 
-    //console.log(`request filters - ${req.param.filters}`)
+    console.log(`request filters - ${req.params.filters}`)
     let filters = JSON.parse(req.params.filters);
 
     if(filters.jobTitle) {
         url+= filters.jobTitle;
     }
 
-    if(filters.jobType === "Full-Time") {
+    if(filters.jobType === "Full Time") {
         url+= "&full_time=true";
     } else if(filters.jobType) {
-        url+= "+"+filters.jobType;
+        url+= "&type="+filters.jobType;
     }
 
     if(filters.location) {

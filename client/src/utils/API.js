@@ -43,7 +43,7 @@ export default {
   },
   //login user 
   loginUser: function(userId) {
-    return axios.post("/users/login"+userId);
+    return axios.post("/users/login", userId);
   },
   //logout user 
   logoutUser: function(userId) {

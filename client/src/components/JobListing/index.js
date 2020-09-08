@@ -20,7 +20,7 @@ function JobListing(props) {
 
                 <div className="col-9 job-details">
                     <p>
-                        <strong><a className="savedjob-title" href={props.url}>{props.title}</a></strong><br/>
+                        <strong><a className="savedjob-title" href="#">{props.title}</a></strong><br/>
                         {props.company}<br/>
                     </p>
                 </div>
@@ -30,7 +30,7 @@ function JobListing(props) {
                         {props.location}<br/>
                         {props.type}
                     </p>
-                    <button>Apply</button>
+                    <button onClick={() => window.open(props.url)}>Apply</button>
                     <button onClick={() => saveJob(props)}>Save</button>
                 </div>
 

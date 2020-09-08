@@ -45,7 +45,7 @@ const JobSearch = () => {
   }
 
     let listedResults = searchResults.map((result, index) => 
-      <JobListing location={result.location} company={result.company} title={result.title} url={result.url} key={index}/>
+      <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} key={index}/>
     );
 
     return (

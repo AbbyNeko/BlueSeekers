@@ -101,6 +101,21 @@ label {
   margin-top:2em;
 }
 
+.results {
+  margin-top:4em;
+}
+
+/* Search results */
+
+.job-status button {
+  margin-left:3em;
+}
+
+.job-status p {
+  text-align: right;
+  margin-right:3em;
+}
+
 /* Login */
 
 .login-section, .sign-up-section {

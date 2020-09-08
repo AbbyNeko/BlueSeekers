@@ -15,10 +15,10 @@ function AdvancedFilters(props) {
 
                 <h4>Job Type</h4>
                 <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                    <label><input className="uk-checkbox" type="radio" name="job-type" ref={props.jobType} value="Part Time"/>Part-Time</label>
-                    <label><input className="uk-checkbox" type="radio" name="job-type" ref={props.jobType} value="Full Time"/>Full-Time</label>
-                    <label><input className="uk-checkbox" type="radio" name="job-type" ref={props.jobType} value="Sponsored"/>Sponsored</label>
-                    <label><input className="uk-checkbox" type="radio" name="job-type" ref={props.jobType} value="Contract"/>Contract</label>
+                    <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Part Time"/>Part-Time</label>
+                    <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Full Time"/>Full-Time</label>
+                    <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Sponsored"/>Sponsored</label>
+                    <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Contract"/>Contract</label>
                 </div>
 
             </div>

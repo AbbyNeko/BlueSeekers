@@ -1,5 +1,19 @@
 import React, {useRef} from "react";
 import Nav from "../components/Nav";
+import API from "../utils/API";
+
+//checks if logged in
+function checkIfLoggedIn() {
+
+  API.isLoggedIn()
+    .then(res => {
+        if(!res.data) {
+            res.redirect("/no-match");
+        }
+    })
+    .catch(err => console.log(err));
+
+}
 
 function MyAccount() {
 
@@ -9,7 +23,7 @@ function MyAccount() {
 
     return (
         <div>
-        <Nav/>
+        <Nav isLoggedIn={checkIfLoggedIn()}/>
           <div className="container">
 
             <div className="row account-profile">

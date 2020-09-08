@@ -59,7 +59,7 @@ const JobSearch = () => {
 
     return (
       <div>
-      <CenterNav/>
+      <CenterNav isLoggedIn={checkIfLoggedIn()}/>
 
         <div className="container">
 

@@ -2,8 +2,29 @@ const passport = require("passport");
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
-const SkillProfile = require("../../models/SkillProfile");    
+const SkillProfile = require("../../models/SkillProfile"); 
+const axios = require("axios");   
 var isAuthenticated = require("../../config/middleware/isAuthenticated");
+
+//gets skill results based keyword being typed
+function getSkillResults(req, res) {
+
+  let url= "https://trendyskills.com/service?key="+process.env.TRENDING_SKILLS_KEY;
+
+  if(req.params.skillName) {
+    url += "q=keywords&like="+req.params.skillName
+  };
+
+  axios.get(url)
+  .then((response) => {
+      res.json(response.data.keywords);
+  })
+  .catch(error => {
+      console.log(`error - ${error}`);
+  });
+
+
+}
 
 router.route("/register", function(req, res) {
   console.log("registering user");
@@ -65,7 +86,7 @@ router.route("/authorized", isAuthenticated, function(req, res) {
 });
 
 router.route("/skillProfiles")
-      .get();
+      .get(getSkillResults);
 
 
 module.exports = router;

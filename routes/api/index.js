@@ -2,6 +2,8 @@ const router = require("express").Router();
 const axios = require("axios");
 const SavedJobs = require("../../models/SavedJob");
 const SavedSearches = require("../../models/JobSearch");
+const SavedJobsController = require("../../controllers/SavedJobsController");
+const JobSearchController = require("../../controllers/JobSearchController");
 
 
 //searching for job postings using Github jobs API
@@ -39,48 +41,18 @@ function getJobResults(req, res) {
 
 }
 
-//get saved jobs by id
-function getSavedJobsById(req, res) {
-
-}
-
-//save job
-function saveJob(req, res) {
-
-}
-
-//delete saved job
-function deleteSavedJob(req, res) {
-
-}
-
-//get saved job search
-function getSavedJobSearch(req, res) {
-
-}
-
-//create saved job search
-function createSavedJobSearch(req, res) {
-
-}
-
-//delete saved job search
-function deleteSavedJobSearch(req, res) {
-
-}
-
 // Matches with "/api/jobs"
 router.route("/jobs")
       .get(getJobResults);
 
 router.route("/savedJobs")
-      .get(getSavedJobById)
-      .post(saveJob)
-      .delete(deleteSavedJob);
+      .get(SavedJobsController.findAll)
+      .post(SavedJobsController.create)
+      .delete(SavedJobsController.remove);
 
 router.route("/savedJobSearch")
-      .get(getSavedJobSearch)
-      .post(createSavedJobSearch)
-      .delete(deleteSavedJobSearch);
+      .get(JobSearchController.findAll)
+      .post(JobSearchController.create)
+      .delete(JobSearchController.remove);
 
 module.exports = router;

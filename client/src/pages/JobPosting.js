@@ -1,21 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-//checks if logged in
-function checkIfLoggedIn() {
-
-  API.isLoggedIn()
-    .then(res => res.data)
-    .catch(err => console.log(err));
-
-}
-
 function JobPosting() {
+
+  const [isLoggedIn, setLogin] = useState(false);
+
+  //checks if logged in
+  if(!isLoggedIn) {
+    API.isLoggedIn()
+      .then(res => setLogin(res.data))
+      .catch(err => console.log(err));
+  }
 
     return (
       <div>
-      <Nav isLoggedIn={checkIfLoggedIn}/>
+      <Nav isLoggedIn={isLoggedIn}/>
       <div className="container">
 
         <div className="row job-posting">

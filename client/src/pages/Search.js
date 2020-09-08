@@ -13,14 +13,13 @@ const JobSearch = () => {
     const datePostedRef = useRef();
 
     const [searchResults, setResults] = useState([]);
+    const [isLoggedIn, setLogin] = useState(false);
 
   //checks if logged in
-  function checkIfLoggedIn() {
-
+  if(!isLoggedIn) {
     API.isLoggedIn()
-      .then(res => res.data)
+      .then(res => setLogin(res.data))
       .catch(err => console.log(err));
-
   }
 
   // search job postings
@@ -49,17 +48,17 @@ const JobSearch = () => {
       <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} key={index}/>
     );
 
-    const savedSearch = () => {
 
-        if(checkIfLoggedIn()) {
-          return <SavedSearchList/>;
-        }
+    let savedSearch = '';
 
+    if(isLoggedIn) {
+      savedSearch = <SavedSearchList/>;
     }
+
 
     return (
       <div>
-      <CenterNav isLoggedIn={checkIfLoggedIn()}/>
+      <CenterNav isLoggedIn={isLoggedIn}/>
 
         <div className="container">
 

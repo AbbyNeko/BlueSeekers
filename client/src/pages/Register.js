@@ -8,10 +8,11 @@ function createAccount(emailRef, passwordRef, firstNameRef, lastNameRef) {
   let user = {};
   user.fullName = firstNameRef.current.value+" "+lastNameRef.current.value;
   user.email = emailRef.current.value;
+  user.username = emailRef.current.value;
   user.password = passwordRef.current.value;
 
   API.createUser(user)
-      .then(res => res.redirect("/"))
+      .then(res => window.location.href = "/")
       .catch(err => console.log(err));
 
 }

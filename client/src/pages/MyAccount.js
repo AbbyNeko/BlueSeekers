@@ -1,21 +1,18 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 
-//checks if logged in
-function checkIfLoggedIn() {
-
-  API.isLoggedIn()
-    .then(res => {
-        if(!res.data) {
-            res.redirect("/no-match");
-        }
-    })
-    .catch(err => console.log(err));
-
-}
 
 function MyAccount() {
+
+  const [isLoggedIn, setLogin] = useState(false);
+
+  //checks if logged in
+  if(!isLoggedIn) {
+    API.isLoggedIn()
+      .then(res => setLogin(res.data))
+      .catch(err => console.log(err));
+  }
 
     const fullNameRef = useRef();
     const emailRef = useRef();
@@ -23,7 +20,7 @@ function MyAccount() {
 
     return (
         <div>
-        <Nav isLoggedIn={checkIfLoggedIn()}/>
+        <Nav isLoggedIn={isLoggedIn}/>
           <div className="container">
 
             <div className="row account-profile">
@@ -40,16 +37,6 @@ function MyAccount() {
                                     <label>Name<input type="text" ref={fullNameRef} name="full-name-input" className="full-name-input" placeholder="John Smith"/></label>
                                     <label>Email Address<input type="text" ref={emailRef} name="account-email-input" className="account-email-input" placeholder="jobseeker@gmail.com"/></label>
                                     <label>Push Notifications for New Jobs<input type="checkbox" ref={notifyRef} name="notify-checkbox" className="notify-checkbox"/></label>
-                                </div>
-
-                                <div className="col-lg-5 col-md-12">
-                                    <h3><strong>Skills Profile</strong></h3>
-                                    <input type="text" name="add-skill-input" className="add-skill-input"/>
-                                    <button>Add Skill</button>
-                                    <ul className="uk-sortable skills-list" data-uk-sortable>
-                                        <li><button className="uk-close-large" type="button" uk-close="true"></button>React</li>
-                                        <li><button className="uk-close-large" type="button" uk-close="true"></button>JavaScript</li>
-                                    </ul>
                                 </div>
 
                         </div>

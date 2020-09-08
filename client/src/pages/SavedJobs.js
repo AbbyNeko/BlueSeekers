@@ -1,26 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Nav from "../components/Nav";
 import SavedJobListing from "../components/SavedJobListing";
 import API from "../utils/API";
 
-//checks if logged in
-function checkIfLoggedIn() {
-
-  API.isLoggedIn()
-    .then(res => {
-        if(!res.data) {
-            res.redirect("/no-match");
-        }
-    })
-    .catch(err => console.log(err));
-
-}
 
 function SavedJobs() {
 
+  const [isLoggedIn, setLogin] = useState(false);
+
+  //checks if logged in
+  if(!isLoggedIn) {
+    API.isLoggedIn()
+      .then(res => setLogin(res.data))
+      .catch(err => console.log(err));
+  }
+
     return (
         <div>
-        <Nav isLoggedIn={checkIfLoggedIn()}/>
+        <Nav isLoggedIn={isLoggedIn}/>
           <div className="container">
 
                 <div className="row">

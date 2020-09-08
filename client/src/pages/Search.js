@@ -14,6 +14,7 @@ const JobSearch = () => {
 
     const [searchResults, setResults] = useState([]);
 
+  //checks if logged in
   function checkIfLoggedIn() {
 
     API.isLoggedIn()
@@ -48,6 +49,14 @@ const JobSearch = () => {
       <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} key={index}/>
     );
 
+    const savedSearch = () => {
+
+        if(checkIfLoggedIn()) {
+          return <SavedSearchList/>;
+        }
+
+    }
+
     return (
       <div>
       <CenterNav/>
@@ -69,7 +78,7 @@ const JobSearch = () => {
 
                         <ul className="accordion col-lg-8 col-sm-10" uk-accordion="multiple:true">
                           <AdvancedFilters jobType={jobTypeRef} datePosted={datePostedRef}/>
-                          <SavedSearchList/>
+                          {savedSearch}
                         </ul>
 
                 </form>

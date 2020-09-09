@@ -48,7 +48,6 @@ if(!isLoggedIn) {
       let filters = {};
       filters.jobTitle = jobTitleRef.current.value;
       filters.location = locationRef.current.value;
-      filters.datePosted = datePostedRef.current.value;
       filters.jobType = jobTypeRef.current.value;
 
       searchJobs(filters);
@@ -86,7 +85,7 @@ if(!isLoggedIn) {
                         <input type="submit" name="job-search-btn" value="Search"/>
 
                         <ul className="accordion col-lg-8 col-sm-10" uk-accordion="multiple:true">
-                          <AdvancedFilters jobType={jobTypeRef} datePosted={datePostedRef} jobTitleRef={jobTypeRef} locationRef={locationRef} isLoggedIn={isLoggedIn}/>
+                          <AdvancedFilters jobType={jobTypeRef} jobTitleRef={jobTypeRef} locationRef={locationRef} isLoggedIn={isLoggedIn}/>
                           {savedSearch}
                         </ul>
 

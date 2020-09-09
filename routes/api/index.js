@@ -15,7 +15,7 @@ function getJobResults(req, res) {
     let filters = JSON.parse(req.params.filters);
 
     if(filters.jobTitle) {
-        url+= "title="+filters.jobTitle;
+        url+= "description="+filters.jobTitle;
     }
 
     if(filters.jobType === "Full Time") {
@@ -28,9 +28,9 @@ function getJobResults(req, res) {
         url += "&location="+filters.location;
     }
 
-    if(filters.datePosted) {
+    /*if(filters.datePosted) {
         url += "&created_at="+req.params.datePosted;
-    }
+    }*/
 
     console.log(`api url - ${url}`);
 

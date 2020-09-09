@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../../utils/API";
+import moment from "moment";
 
   // saves job
   function saveJob(jobData) {
@@ -20,7 +21,7 @@ function JobListing(props) {
                     <p>
                         <strong><a className="savedjob-title" href={props.url} target="_blank" rel="noopener noreferrer">{props.title}</a></strong><br/>
                         {props.company}<br/>
-                        {props.created_at}
+                        {moment(props.created_at).format('MMMM Do YYYY')}
                     </p>
                 </div>
 

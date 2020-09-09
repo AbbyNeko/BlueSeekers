@@ -9,13 +9,13 @@ const JobSearchController = require("../../controllers/JobSearchController");
 //searching for job postings using Github jobs API
 function getJobResults(req, res) {
 
-    let url = "https://jobs.github.com/positions.json?search=";
+    let url = "https://jobs.github.com/positions.json?";
 
     console.log(`request filters - ${req.params.filters}`)
     let filters = JSON.parse(req.params.filters);
 
     if(filters.jobTitle) {
-        url+= filters.jobTitle;
+        url+= "title="+filters.jobTitle;
     }
 
     if(filters.jobType === "Full Time") {

@@ -115,12 +115,13 @@ label {
 /* Search results */
 
 .job-status button {
-  margin-left:3em;
+  margin-left:1em;
+  float:right;
+  width:5em;
 }
 
 .job-status p {
   text-align: right;
-  margin-right:3em;
 }
 
 /* Login */

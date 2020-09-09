@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import API from "../../utils/API";
 import moment from "moment";
 
@@ -12,6 +12,11 @@ import moment from "moment";
   };
 
 function JobListing(props) {
+    let saveBtn = '';
+
+    if(props.isLoggedIn) {
+        saveBtn = <button className="save-job-btn" onClick={() => saveJob(props)}>Save</button>;
+    }
 
     return (
         <div className="saved-job" key={props.key}>
@@ -30,8 +35,8 @@ function JobListing(props) {
                         {props.location}<br/>
                         {props.type}
                     </p>
-                    <button onClick={() => window.open(props.url)}>Apply</button>
-                    <button onClick={() => saveJob(props)}>Save</button>
+                    <button className="apply-job-btn" onClick={() => window.open(props.url)}>Apply</button>
+                    {saveBtn}
                 </div>
 
             </div>

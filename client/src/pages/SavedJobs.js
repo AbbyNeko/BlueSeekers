@@ -8,16 +8,18 @@ function SavedJobs() {
 
   const [isLoggedIn, setLogin] = useState(false);
   const [savedJobs, setSavedJobs] = useState([]);
+  const [userId, setId] = useState('');
 
   //checks if logged in
   if(!isLoggedIn) {
     API.isLoggedIn()
       .then(res => {
-        
+
         if(res.data.message === "no auth") {
           setLogin(false);
         } else {
           setLogin(true);
+          setId(res.data._id);
         }
 
       })

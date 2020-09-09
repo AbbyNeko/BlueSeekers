@@ -14,6 +14,7 @@ const JobSearch = () => {
 
     const [searchResults, setResults] = useState([]);
     const [isLoggedIn, setLogin] = useState(false);
+    const [userId, setId] = useState('');
 
 //checks if logged in
 if(!isLoggedIn) {
@@ -26,6 +27,7 @@ if(!isLoggedIn) {
         setLogin(false);
       } else {
         setLogin(true);
+        setId(res.data._id);
       }
 
     })
@@ -54,7 +56,7 @@ if(!isLoggedIn) {
   }
 
     let listedResults = searchResults.map((result, index) => 
-      <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} created_at={result.created_at} key={index}/>
+      <JobListing isLoggedIn={isLoggedIn} userId={userId} location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} created_at={result.created_at} key={index}/>
     );
 
 

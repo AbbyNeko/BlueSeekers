@@ -1,19 +1,15 @@
-import React, {useRef, useState} from "react";
+import React, {useRef} from "react";
 import API from "../../utils/API";
 import SavedSearchInput from "../SavedSearchInput";
 
 function AdvancedFilters(props) {
 
-  const [isLoggedIn, setLogin] = useState(false);
-
-  //checks if logged in
-  if(!isLoggedIn) {
-    API.isLoggedIn()
-      .then(res => setLogin(res.data))
-      .catch(err => console.log(err));
-  }
-
   const savedSearchRef = useRef();
+  let savedSearchComp = '';
+
+  if(props.isLoggedIn) {
+    savedSearchComp = <SavedSearchInput savedSearchRef={savedSearchRef}/>;
+  }
 
   return (
 
@@ -31,8 +27,8 @@ function AdvancedFilters(props) {
                     <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Sponsored"/>Sponsored</label>
                     <label><input className="uk-checkbox" type="checkbox" name="job-type" ref={props.jobType} value="Contract"/>Contract</label>
                 </div>
-
-                <SavedSearchInput savedSearchRef={savedSearchRef}/>
+                
+                {savedSearchComp}
 
             </div>
         </li>

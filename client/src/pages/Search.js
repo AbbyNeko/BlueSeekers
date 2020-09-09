@@ -15,8 +15,6 @@ const JobSearch = () => {
     const [searchResults, setResults] = useState([]);
     const [isLoggedIn, setLogin] = useState(false);
 
-    console.log(isLoggedIn)
-
 //checks if logged in
 if(!isLoggedIn) {
   API.isLoggedIn()
@@ -88,7 +86,7 @@ if(!isLoggedIn) {
                         <input type="submit" name="job-search-btn" value="Search"/>
 
                         <ul className="accordion col-lg-8 col-sm-10" uk-accordion="multiple:true">
-                          <AdvancedFilters jobType={jobTypeRef} datePosted={datePostedRef}/>
+                          <AdvancedFilters jobType={jobTypeRef} datePosted={datePostedRef} jobTitleRef={jobTypeRef} locationRef={locationRef} isLoggedIn={isLoggedIn}/>
                           {savedSearch}
                         </ul>
 

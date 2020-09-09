@@ -4,9 +4,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const SavedJob = new Schema({
     jobTitle: {
-        type: String,
-        required: 'Email address is required',
-        unique: true
+        type: String
     },
     companyName: {
         type: String

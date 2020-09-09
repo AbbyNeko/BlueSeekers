@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import API from "../utils/API";
 
 
-
+//create account
 function createAccount(emailRef, passwordRef, firstNameRef, lastNameRef) {
 
   let user = {};

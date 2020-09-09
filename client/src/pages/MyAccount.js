@@ -7,12 +7,20 @@ function MyAccount() {
 
   const [isLoggedIn, setLogin] = useState(false);
 
-  //checks if logged in
-  if(!isLoggedIn) {
-    API.isLoggedIn()
-      .then(res => setLogin(res.data))
-      .catch(err => console.log(err));
-  }
+//checks if logged in
+if(!isLoggedIn) {
+  API.isLoggedIn()
+    .then(res => {
+      
+      if(res.data.message === "no auth") {
+        setLogin(false);
+      } else {
+        setLogin(true);
+      }
+
+    })
+    .catch(err => console.log(err));
+}
 
     const fullNameRef = useRef();
     const emailRef = useRef();

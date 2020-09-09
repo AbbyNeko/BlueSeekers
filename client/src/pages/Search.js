@@ -15,12 +15,24 @@ const JobSearch = () => {
     const [searchResults, setResults] = useState([]);
     const [isLoggedIn, setLogin] = useState(false);
 
-  //checks if logged in
-  if(!isLoggedIn) {
-    API.isLoggedIn()
-      .then(res => setLogin(res.data))
-      .catch(err => console.log(err));
-  }
+    console.log(isLoggedIn)
+
+//checks if logged in
+if(!isLoggedIn) {
+  API.isLoggedIn()
+    .then(res => {
+
+      //console.log(res.data);
+      
+      if(res.data.message === "no auth") {
+        setLogin(false);
+      } else {
+        setLogin(true);
+      }
+
+    })
+    .catch(err => console.log(err));
+}
 
   // search job postings
   function searchJobs(filters) {
@@ -45,7 +57,7 @@ const JobSearch = () => {
   }
 
     let listedResults = searchResults.map((result, index) => 
-      <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} key={index}/>
+      <JobListing location={result.location} company={result.company} title={result.title} type={result.type} url={result.url} created_at={result.created_at} key={index}/>
     );
 
 

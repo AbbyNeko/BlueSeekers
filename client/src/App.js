@@ -6,7 +6,7 @@ import SavedJobs from "./pages/SavedJobs";
 import MyAccount from "./pages/MyAccount";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import JobPosting from "./pages/JobPosting";
+import Logout from "./pages/Logout"
 import NoMatch from "./pages/NoMatch";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
                 <Route exact path="/sign-up" component={Register} />
                 <Route exact path="/saved-jobs" component={SavedJobs} />
                 <Route exact path="/my-account" component={MyAccount} />
-                <Route path="/job-posting" component={JobPosting} />
+                <Route path="/logout" component={Logout} />
                 <Route component={NoMatch} />
         </Switch>
      </Router>

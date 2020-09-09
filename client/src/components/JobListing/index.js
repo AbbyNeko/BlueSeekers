@@ -2,11 +2,9 @@ import React from "react";
 import API from "../../utils/API";
 
   // saves job
-  function saveJob(bookData) {
+  function saveJob(jobData) {
 
-    API.saveBook({
-        
-      })
+    API.saveJob(jobData)
         .then(res => console.log('saved'))
         .catch(err => console.log(err));
         
@@ -20,8 +18,9 @@ function JobListing(props) {
 
                 <div className="col-9 job-details">
                     <p>
-                        <strong><a className="savedjob-title" href="#">{props.title}</a></strong><br/>
+                        <strong><a className="savedjob-title" href={props.url} target="_blank" rel="noopener noreferrer">{props.title}</a></strong><br/>
                         {props.company}<br/>
+                        {props.created_at}
                     </p>
                 </div>
 

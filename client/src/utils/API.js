@@ -46,8 +46,8 @@ export default {
     return axios.post("/users/login", userId);
   },
   //logout user 
-  logoutUser: function(userId) {
-    return axios.get("/users/logout"+userId);
+  logoutUser: function() {
+    return axios.get("/users/logout/");
   },
   isLoggedIn: function() {
     return axios.get("/users/authorized");

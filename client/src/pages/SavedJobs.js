@@ -7,11 +7,20 @@ import API from "../utils/API";
 function SavedJobs() {
 
   const [isLoggedIn, setLogin] = useState(false);
+  const [savedJobs, setSavedJobs] = useState([]);
 
   //checks if logged in
   if(!isLoggedIn) {
     API.isLoggedIn()
-      .then(res => setLogin(res.data))
+      .then(res => {
+        
+        if(res.data.message === "no auth") {
+          setLogin(false);
+        } else {
+          setLogin(true);
+        }
+
+      })
       .catch(err => console.log(err));
   }
 
